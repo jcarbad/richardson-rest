@@ -10,10 +10,12 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface CustomerMapper {
 
-   CategoryMapper INSTANCE = Mappers.getMapper(CategoryMapper.class);
+   CustomerMapper INSTANCE = Mappers.getMapper(CustomerMapper.class);
 
    @Mapping(source = "id", target = "customerUrl", qualifiedByName = "idToHyperLink")
    CustomerDTO getDtoFrom(Customer customer);
+
+   Customer getEntityFrom(CustomerDTO dto);
 
    @Named("idToHyperLink")
    static String idToHyperLink(Long id) {

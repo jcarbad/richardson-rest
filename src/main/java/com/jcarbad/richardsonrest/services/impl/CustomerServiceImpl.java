@@ -12,20 +12,22 @@ public class CustomerServiceImpl implements CustomerService
 {
    private final CustomerRepository customerRepository;
 
-   public CustomerServiceImpl(CustomerRepository customerRepository)
-   {
+   public CustomerServiceImpl(CustomerRepository customerRepository) {
       this.customerRepository = customerRepository;
    }
 
    @Override
-   public List<Customer> getAllCustomers()
-   {
+   public List<Customer> getAllCustomers() {
       return customerRepository.findAll();
    }
 
    @Override
-   public Customer findById(Long id)
-   {
+   public Customer findById(Long id) {
       return customerRepository.findById(id).orElse(null);
+   }
+
+   @Override
+   public Customer create(Customer customer) {
+      return customerRepository.save(customer);
    }
 }
