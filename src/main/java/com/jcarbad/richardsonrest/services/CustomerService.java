@@ -8,4 +8,5 @@ public interface CustomerService {
    List<Customer> getAllCustomers();
    Customer findById(Long id);
    Customer create(Customer customer);
+   Customer update(Long id, Customer customer);
 }

@@ -42,4 +42,11 @@ public class CustomerController {
       Customer created = customerService.create(customerMapper.getEntityFrom(customerDTO));
       return customerMapper.getDtoFrom(created);
    }
+
+   @PutMapping("/{id}")
+   @ResponseStatus(HttpStatus.NO_CONTENT)
+   public CustomerDTO updateCustomer(@PathVariable Long id, @RequestBody @Valid CustomerDTO customerDTO) {
+      Customer updated = customerService.update(id, customerMapper.getEntityFrom(customerDTO));
+      return customerMapper.getDtoFrom(updated);
+   }
 }

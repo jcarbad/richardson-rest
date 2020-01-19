@@ -30,4 +30,10 @@ public class CustomerServiceImpl implements CustomerService
    public Customer create(Customer customer) {
       return customerRepository.save(customer);
    }
+
+   @Override
+   public Customer update(Long id, Customer customer) {
+      customer.setId(id);
+      return customerRepository.save(customer);
+   }
 }
