@@ -36,4 +36,12 @@ public class CustomerServiceImpl implements CustomerService
       customer.setId(id);
       return customerRepository.save(customer);
    }
+
+   @Override
+   public void delete(Long id) {
+      Customer toDelete = findById(id);
+      if (toDelete != null) {
+         customerRepository.delete(toDelete);
+      }
+   }
 }

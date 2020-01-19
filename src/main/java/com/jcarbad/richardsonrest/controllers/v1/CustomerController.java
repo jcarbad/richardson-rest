@@ -49,4 +49,10 @@ public class CustomerController {
       Customer updated = customerService.update(id, customerMapper.getEntityFrom(customerDTO));
       return customerMapper.getDtoFrom(updated);
    }
+
+   @DeleteMapping("/{id}")
+   @ResponseStatus(HttpStatus.NO_CONTENT)
+   public void deleteCustomer(@PathVariable Long id) {
+      customerService.delete(id);
+   }
 }
